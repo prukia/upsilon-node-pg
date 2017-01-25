@@ -19,12 +19,15 @@ function displayBooks(books){
 
   $('book-list').empty();
   books.forEach(function(book){
-    //can't create in ht eDOM because you're not sure how much we need from the DB
+    //can't create in the DOM because you're not sure how much we need from the DB
     var $li = $('<li></li>');
     $li.append('<p><strong>' + book.title + '</strong></p>');
     $li.append('<p><em>' + book.author + '</em></p>');
     var date = new Date(book.publication_date).toDateString();
     $li.append('<p><time>' + date + '</time></p>');
+
+    $li.append('<p><strong>' + book.edition + '</strong></p>');
+    $li.append('<p><em>' + book.publisher + '</em></p>');
 
     $('#book-list').append($li);
   });
